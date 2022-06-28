@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import "../pages/index.css";\
+import "../pages/index.css";
 // for firbase
+const initialState = { email: "", password: "" };
 
 export const Login = () => {
   const [first, setfirst] = useState(initialState);
+
+  // for firebase
 
   // const buttons = [
   //   { color: "#1877f2", icon: "facebook" },
@@ -32,6 +35,7 @@ export const Login = () => {
                         type="email"
                         placeholder="Email"
                         className="form-control"
+                        onChange={handleChange}
 
                       />
                     </div>
@@ -43,6 +47,7 @@ export const Login = () => {
                         type="Password"
                         placeholder="Password"
                         className="form-control"
+                        onChange={handleChange}
 
                       />
                     </div>
