@@ -6,7 +6,7 @@ import { auth } from "../config/firebase";
 const initialState = { email: "", password: "" };
 // firebase authentications
 export const Login = () => {
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState({})
 
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export const Login = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h2>User Email:{user.email}</h2>
+            <h2 className="text-white text-center">User Email:{user.email}</h2>
             <h2>User UID:{user.uid}</h2>
           </div>
         </div>
