@@ -4,9 +4,17 @@ import "../pages/index.css";
 const initialState = { email: "", password: "" };
 
 export const Login = () => {
-  const [first, setfirst] = useState(initialState);
+  const [data, setdata] = useState(initialState);
 
   // for firebase
+  const handleChange = (e) => {
+    setdata({
+      ...data, [e.target.name]: e.target.value,
+
+    })
+    console.log(e.target.name);
+  }
+
 
   // const buttons = [
   //   { color: "#1877f2", icon: "facebook" },
@@ -15,8 +23,9 @@ export const Login = () => {
   //   { color: "#1da1f2", icon: "twitter" },
   // ];
 
-  const handleSubmit = (event) => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(data);
   };
   return (
     <div className="login d-flex justify-content-center align-items-center">
@@ -34,6 +43,7 @@ export const Login = () => {
                       <input
                         type="email"
                         placeholder="Email"
+                        name="email"
                         className="form-control"
                         onChange={handleChange}
 
@@ -45,6 +55,7 @@ export const Login = () => {
                     <div className="col">
                       <input
                         type="Password"
+                        name="password"
                         placeholder="Password"
                         className="form-control"
                         onChange={handleChange}
