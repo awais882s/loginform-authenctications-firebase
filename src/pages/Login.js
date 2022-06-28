@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../pages/index.css";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
 // for firbase
 const initialState = { email: "", password: "" };
@@ -26,6 +26,16 @@ export const Login = () => {
 
     })
   }, []);
+
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+
+  }
+
 
 
 
@@ -82,9 +92,10 @@ export const Login = () => {
           user.email
             ?
             <div className="row">
-              <div className="col">
-                <h2 className="text-white text-center">User Email:{user.email}</h2>
+              <div className="col text-center">
+                <h2 className="text-white">User Email:{user.email}</h2>
                 <h2>User UID:{user.uid}</h2>
+                <button className="btn btn-danger " onClick={handleSignOut}>LogOut Account </button>
               </div>
             </div>
             :
