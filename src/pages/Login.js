@@ -14,6 +14,7 @@ export const Login = () => {
     })
     console.log(e.target.name);
   }
+  
 
 
   // const buttons = [
@@ -25,6 +26,7 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e);
     console.log(data);
   };
   return (
