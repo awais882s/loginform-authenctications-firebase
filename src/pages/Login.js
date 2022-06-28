@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../pages/index.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
 // for firbase
 const initialState = { email: "", password: "" };
+// firebase authentications
 
 export const Login = () => {
   const [data, setdata] = useState(initialState);
@@ -14,7 +17,7 @@ export const Login = () => {
     })
     console.log(e.target.name);
   }
-  
+
 
 
   // const buttons = [
@@ -26,8 +29,24 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log(data);
+    //destructuring use below
+    const { email, password } = data;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log("Registered successfully");
+        console.log(userCredential);
+        console.log(user);
+
+        // ...
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        console.log(error);
+        // ..
+      });
   };
   return (
     <div className="login d-flex justify-content-center align-items-center">
@@ -37,7 +56,7 @@ export const Login = () => {
             <div className="card p-3 p-md-4 shadow-lg p-3 mb-5 bg-body rounded">
               <div className="row">
                 <div className="col">
-                  <h1 className="text-center mb-5"> Login</h1>
+                  <h1 className="text-center mb-5">SignUp</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="row mb-3">
@@ -67,7 +86,7 @@ export const Login = () => {
                   </div>
                   <div className="row">
                     <div className="col">
-                      <button className="btn btn-primary w-100">login</button>
+                      <button className="btn btn-primary w-100">Register Form </button>
                     </div>
                   </div>
                 </form>
