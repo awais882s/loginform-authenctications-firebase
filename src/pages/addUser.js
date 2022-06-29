@@ -5,7 +5,6 @@ import { firestore } from "../config/firebase";
 const initialState = { fullName: "", age: "", country: "" };
 export const AddUser = () => {
     const [data, setdata] = useState(initialState);
-
     // for firebase
     const handleChange = (e) => {
         setdata({
@@ -13,8 +12,6 @@ export const AddUser = () => {
         })
         // console.log(e.target.name);
     }
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("handleSubmit");
@@ -22,7 +19,9 @@ export const AddUser = () => {
         const { fullName, age, country } = data
         try {
             const docRef = await addDoc(collection(firestore, "users"), { fullName, age, country });
+
             console.log("Document written with ID: ", docRef.id);
+
         } catch (e) {
             console.error("Error adding document: ", e);
         }
@@ -46,6 +45,7 @@ export const AddUser = () => {
                                                 placeholder="Enter Full Name"
                                                 name="fullName"
                                                 className="form-control"
+                                                required
                                                 onChange={handleChange}
 
                                             />
@@ -58,6 +58,7 @@ export const AddUser = () => {
                                                 type="number"
                                                 name="age"
                                                 placeholder="Age"
+                                                required
                                                 className="form-control"
                                                 onChange={handleChange}
 
@@ -72,6 +73,7 @@ export const AddUser = () => {
                                                 name="country"
                                                 placeholder="Enter Your Country"
                                                 className="form-control"
+                                                required
                                                 onChange={handleChange}
                                             />
                                         </div>
