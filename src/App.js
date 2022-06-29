@@ -1,13 +1,12 @@
-import { Login } from "./pages/Login";
-// import "bootstrap/dist/js/bootstrap.bundle"
+// import { Login } from "./pages/Login";
 import "./scss/App.scss";
-// firebase authentications
-
+import { AddUser } from "../src/pages/AddUser";
 function App() {
   return (
-    <div>
-      <Login />
-    </div>
+    <>
+      {/* <Login /> */}
+      <AddUser />
+    </>
   );
 }
 

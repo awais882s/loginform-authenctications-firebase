@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // for firbase
 const initialState = { email: "", password: "" };
-export const Login = () => {
+export const AddUser = () => {
     const [data, setdata] = useState(initialState);
 
     // for firebase
@@ -15,6 +15,7 @@ export const Login = () => {
 
 
     const handleSubmit = (e) => {
+        console.log("handleSubmit");
 
     }
 
@@ -36,6 +37,7 @@ export const Login = () => {
                                                 placeholder="Enter Full Name"
                                                 name="email"
                                                 className="form-control"
+                                                onChange={handleChange}
 
                                             />
                                         </div>
@@ -48,6 +50,8 @@ export const Login = () => {
                                                 name="age"
                                                 placeholder="Password"
                                                 className="form-control"
+                                                onChange={handleChange}
+
 
                                             />
                                         </div>
@@ -59,7 +63,7 @@ export const Login = () => {
                                                 name="country"
                                                 placeholder="Enter Your Country"
                                                 className="form-control"
-
+                                                onChange={handleChange}
                                             />
                                         </div>
                                     </div>
