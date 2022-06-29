@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // for firbase
-const initialState = { email: "", password: "" };
+const initialState = { fullname: "", age: "", country: "" };
 export const AddUser = () => {
     const [data, setdata] = useState(initialState);
 
@@ -15,6 +15,7 @@ export const AddUser = () => {
 
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         console.log("handleSubmit");
 
     }
@@ -70,7 +71,7 @@ export const AddUser = () => {
 
                                     <div className="row">
                                         <div className="col">
-                                            <button className="btn btn-primary w-100">Add User </button>
+                                            <button className="btn btn-outline-primary w-100">Add User </button>
                                         </div>
                                     </div>
                                 </form>
