@@ -90,8 +90,8 @@ export const Login = () => {
             <div className="row">
               <div className="col text-center">
                 <h2 className="text-white">User Email:{user.email}</h2>
-                <h2>User UID:{user.uid}</h2>
-                <h2>User Name:{user.displayName}</h2>
+                <h2 className="text-white">User UID:{user.uid}</h2>
+                <h2 className="text-white">User Name:{user.displayName}</h2>
 
                 <button onClick={handleSignOut} className="btn btn-danger text-black" >logout</button>
               </div>
