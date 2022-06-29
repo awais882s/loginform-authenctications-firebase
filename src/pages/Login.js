@@ -140,7 +140,7 @@ export const Login = () => {
                     <div className="row">
                       <div className="col">
                         {buttons.map((button, i) => {
-                          console.log(i, button);
+                          // console.log(i, button);
                           return (
                             <button
                               key={i}
