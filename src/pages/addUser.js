@@ -10,7 +10,6 @@ export const AddUser = () => {
     const handleChange = (e) => {
         setdata({
             ...data, [e.target.name]: e.target.value
-
         })
         // console.log(e.target.name);
     }
@@ -24,13 +23,9 @@ export const AddUser = () => {
         try {
             const docRef = await addDoc(collection(firestore, "users"), { fullName, age, country });
             console.log("Document written with ID: ", docRef.id);
-            setdata("");
         } catch (e) {
             console.error("Error adding document: ", e);
         }
-
-
-
     }
 
     return (
