@@ -16,7 +16,6 @@ export const Login = () => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         console.log(user);
-        setUser(user)
         // ...
       } else {
         // User is signed out
@@ -55,12 +54,12 @@ export const Login = () => {
 
 
 
-  // const buttons = [
-  //   { color: "#1877f2", icon: "facebook" },
-  //   { color: "#25d366", icon: "whatsapp" },
-  //   { color: "#dd4b39", icon: "google plus" },
-  //   { color: "#1da1f2", icon: "twitter" },
-  // ];
+  const buttons = [
+    { color: "#1877f2", icon: "facebook" },
+    { color: "#25d366", icon: "whatsapp" },
+    { color: "#dd4b39", icon: "google plus" },
+    { color: "#1da1f2", icon: "twitter" },
+  ];
 
 
   const handleSubmit = (e) => {
@@ -140,18 +139,18 @@ export const Login = () => {
                     </form>
                     <div className="row">
                       <div className="col">
-                        {/* {buttons.map((button, i) => {
-                    console.log(i,button);
-                    return (
-                      <button
-                        key={i}
-                        className="btn rounded-circle text-white me-3 mt-3 ms-2 "
-                        style={{ background: button.color }}
-                      >
-                        <i className={`bi bi-${button.icon}`}></i>
-                      </button>
-                    );
-                  })} */}
+                        {buttons.map((button, i) => {
+                          console.log(i, button);
+                          return (
+                            <button
+                              key={i}
+                              className="btn rounded-circle text-white me-3 mt-3 ms-2 "
+                              style={{ background: button.color }}
+                            >
+                              <i className={`bi bi-${button.icon}`}></i>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
