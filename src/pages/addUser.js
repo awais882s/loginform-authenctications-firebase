@@ -20,10 +20,11 @@ export const AddUser = () => {
         e.preventDefault();
         console.log("handleSubmit");
         console.log(data);
-        const { fullName, age, country } = data;
+        const { fullName, age, country } = data
         try {
-            const docRef = await addDoc(collection(firestore, "users"), data);
+            const docRef = await addDoc(collection(firestore, "users"), { fullName, age, country });
             console.log("Document written with ID: ", docRef.id);
+            setdata("");
         } catch (e) {
             console.error("Error adding document: ", e);
         }
