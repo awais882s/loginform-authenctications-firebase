@@ -1,22 +1,34 @@
 import React, { useState } from "react";
+import { collection, addDoc } from "firebase/firestore/lite";
+import { firestore } from "../config/firebase";
 // for firbase
-const initialState = { fullname: "", age: "", country: "" };
+const initialState = { fullName: "", age: "", country: "" };
 export const AddUser = () => {
     const [data, setdata] = useState(initialState);
 
     // for firebase
     const handleChange = (e) => {
         setdata({
-            ...data, [e.target.name]: e.target.value,
+            ...data, [e.target.name]: e.target.value
 
         })
         console.log(e.target.name);
     }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("handleSubmit");
+        console.log(data);
+        const { fullName, age, country } = data;
+        try {
+            const docRef = await addDoc(collection(firestore, "users"), data);
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+
+
 
     }
 
@@ -36,7 +48,7 @@ export const AddUser = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Enter Full Name"
-                                                name="email"
+                                                name="fullName"
                                                 className="form-control"
                                                 onChange={handleChange}
 
@@ -49,7 +61,7 @@ export const AddUser = () => {
                                             <input
                                                 type="number"
                                                 name="age"
-                                                placeholder="Password"
+                                                placeholder="Age"
                                                 className="form-control"
                                                 onChange={handleChange}
 
