@@ -67,7 +67,17 @@ export const Login = () => {
         console.log(error);
         // ..
       });
-  };
+    }
+
+
+    // for signout
+    const handleSignOut = () => {
+      signOut(auth).then(() => {
+        // Sign-out successful.
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
   return (
     <div className="login d-flex justify-content-center align-items-center">
       <div className="container">
@@ -76,7 +86,8 @@ export const Login = () => {
             <div className="row">
               <div className="col text-center">
                 <h2 className="text-white">User Email:{user.email}</h2>
-                {/* <h2>User UID:{user.uid}</h2> */}
+                <h2>User UID:{user.uid}</h2>
+                <button onClick={handleSignOut} className="btn btn-outline-danger text-black" >logout</button>
               </div>
             </div> :
 
@@ -120,7 +131,7 @@ export const Login = () => {
                         </div>
                       </div>
                     </form>
-                    <div className="row">
+                    <div className="row d-flex justify-content-center text-center">
                       <div className="col">
                         {buttons.map((button, i) => {
                           // console.log(i, button);
