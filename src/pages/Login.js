@@ -8,14 +8,14 @@ const initialState = { email: "", password: "" };
 export const Login = () => {
   const [user, setUser] = useState({})
 
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
+        // const uid = user.uid;
         console.log(user);
+        setUser(user);
         // ...
       } else {
         // User is signed out
@@ -25,21 +25,6 @@ export const Login = () => {
 
     })
   }, []);
-
-  const handleSignOut = () => {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    });
-
-  }
-
-
-
-
-
-
 
   const [data, setdata] = useState(initialState);
 
@@ -86,18 +71,16 @@ export const Login = () => {
   return (
     <div className="login d-flex justify-content-center align-items-center">
       <div className="container">
-
         {
-          user.email
-            ?
+          user.email ?
             <div className="row">
               <div className="col text-center">
                 <h2 className="text-white">User Email:{user.email}</h2>
-                <h2>User UID:{user.uid}</h2>
-                <button className="btn btn-danger " onClick={handleSignOut}>LogOut Account </button>
+                {/* <h2>User UID:{user.uid}</h2> */}
               </div>
-            </div>
-            :
+            </div> :
+
+
             <div className="row">
               <div className="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 ">
                 <div className="card p-3 p-md-4 shadow-lg p-3 mb-5 bg-body rounded">
@@ -157,11 +140,7 @@ export const Login = () => {
                 </div>
               </div>
             </div>
-
-
         }
-
-
       </div>
     </div>
   );
