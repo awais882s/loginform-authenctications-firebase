@@ -113,6 +113,10 @@ export const Login = () => {
       .then(() => {
         console.log("Email Verification Sent!");
         // ...
+      }).catch((error) => {
+        console.log(error);
+        // An error occurred
+        // ...
       });
   }
   return (
