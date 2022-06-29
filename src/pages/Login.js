@@ -19,6 +19,8 @@ export const Login = () => {
         // ...
       } else {
         // User is signed out
+        console.log("user is logged out ");
+
         // ...
       }
 
@@ -67,17 +69,18 @@ export const Login = () => {
         console.log(error);
         // ..
       });
-    }
+  }
 
 
-    // for signout
-    const handleSignOut = () => {
-      signOut(auth).then(() => {
-        // Sign-out successful.
-      }).catch((error) => {
-        // An error happened.
-      });
-    }
+  // for signout
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      console.log("signout button clicked");
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   return (
     <div className="login d-flex justify-content-center align-items-center">
       <div className="container">
@@ -87,7 +90,9 @@ export const Login = () => {
               <div className="col text-center">
                 <h2 className="text-white">User Email:{user.email}</h2>
                 <h2>User UID:{user.uid}</h2>
-                <button onClick={handleSignOut} className="btn btn-outline-danger text-black" >logout</button>
+                <h2>User Name:{user.displayName}</h2>
+
+                <button onClick={handleSignOut} className="btn btn-danger text-black" >logout</button>
               </div>
             </div> :
 
