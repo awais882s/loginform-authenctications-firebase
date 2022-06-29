@@ -4,10 +4,10 @@ import { firestore } from "../config/firebase";
 // for firbase
 const initialState = { fullName: "", age: "", country: "" };
 export const AddUser = () => {
-    const [data, setdata] = useState(initialState);
+    const [data, setData] = useState(initialState);
     // for firebase
     const handleChange = (e) => {
-        setdata({
+        setData({
             ...data, [e.target.name]: e.target.value
         })
         // console.log(e.target.name);
@@ -19,9 +19,8 @@ export const AddUser = () => {
         const { fullName, age, country } = data
         try {
             const docRef = await addDoc(collection(firestore, "users"), { fullName, age, country });
-
             console.log("Document written with ID: ", docRef.id);
-
+            setData(initialState);
         } catch (e) {
             console.error("Error adding document: ", e);
         }
@@ -46,6 +45,7 @@ export const AddUser = () => {
                                                 name="fullName"
                                                 className="form-control"
                                                 required
+                                                value={data.fullName}
                                                 onChange={handleChange}
 
                                             />
@@ -60,6 +60,7 @@ export const AddUser = () => {
                                                 placeholder="Age"
                                                 required
                                                 className="form-control"
+                                                value={data.age}
                                                 onChange={handleChange}
 
 
@@ -74,6 +75,7 @@ export const AddUser = () => {
                                                 placeholder="Enter Your Country"
                                                 className="form-control"
                                                 required
+                                                value={data.country}
                                                 onChange={handleChange}
                                             />
                                         </div>
