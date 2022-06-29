@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore/lite";
 import { firestore } from "../config/firebase";
+// for toast
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // for firbase
 const initialState = { fullName: "", age: "", country: "" };
 export const AddUser = () => {
@@ -21,11 +25,20 @@ export const AddUser = () => {
             const docRef = await addDoc(collection(firestore, "users"), { fullName, age, country });
             console.log("Document written with ID: ", docRef.id);
             setData(initialState);
+            toast.success('Your Data Has been Submitted ', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
         } catch (e) {
             console.error("Error adding document: ", e);
         }
     }
-
     return (
         <div className="login d-flex justify-content-center align-items-center">
             <div className="container">
@@ -86,6 +99,7 @@ export const AddUser = () => {
                                             <button className="btn btn-outline-primary w-100">Add User </button>
                                         </div>
                                     </div>
+                                    <ToastContainer />
                                 </form>
                             </div>
                         </div>
