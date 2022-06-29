@@ -77,6 +77,7 @@ export const Login = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
       console.log("signout button clicked");
+      setUser({});
     }).catch((error) => {
       // An error happened.
     });
