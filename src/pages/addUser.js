@@ -12,14 +12,14 @@ export const AddUser = () => {
             ...data, [e.target.name]: e.target.value
 
         })
-        console.log(e.target.name);
+        // console.log(e.target.name);
     }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("handleSubmit");
-        console.log(data);
+        // console.log(data);
         const { fullName, age, country } = data
         try {
             const docRef = await addDoc(collection(firestore, "users"), { fullName, age, country });
