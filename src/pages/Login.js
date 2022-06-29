@@ -126,6 +126,7 @@ export const Login = () => {
           user.email ?
             <div className="row">
               <div className="col text-center">
+                <img src={user.photoURL} alt={`${user.email} Profile Pic`} className="img-fluid " style={{ borderRadius: "100%", height: "70px" , width:"70px"}} />
                 <h2 className="text-white">User Email:{user.email}</h2>
                 <h2 className="text-white">User UID:{user.uid}</h2>
                 <h2 className="text-white">User Name:{user.displayName}</h2>
