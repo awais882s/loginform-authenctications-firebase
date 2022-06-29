@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../pages/index.css";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { auth } from "../config/firebase";
 // for firbase
 const initialState = { email: "", password: "" };
@@ -19,7 +19,8 @@ export const Login = () => {
         // ...
       } else {
         // User is signed out
-        console.log("user is logged out ");
+        // console.log("user is logged out ");
+        console.log(auth.currentUser);
 
         // ...
       }
@@ -86,9 +87,22 @@ export const Login = () => {
   // show auth user profile
 
   const showAuthUser = () => {
+    console.log(auth.currentUser);
+
   }
   //  show update Profile
   const showUpdateProfile = () => {
+    const user = auth.currentUser;
+    updateProfile(user, {
+      displayName: "AWAIS"
+    }).then(() => {
+      console.log("Profile Updated!")
+      // ...
+    }).catch((error) => {
+      console.log(error);
+      // An error occurred
+      // ...
+    });
 
   }
   return (
