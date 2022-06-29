@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../pages/index.css";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, sendEmailVerification } from "firebase/auth";
 import { auth } from "../config/firebase";
 // for firbase
 const initialState = { email: "", password: "" };
@@ -105,6 +105,16 @@ export const Login = () => {
     });
 
   }
+
+  // for email verifications
+
+  const handleEmail = () => {
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        console.log("Email Verification Sent!");
+        // ...
+      });
+  }
   return (
     <div className="login d-flex justify-content-center align-items-center">
       <div className="container">
@@ -118,7 +128,8 @@ export const Login = () => {
 
                 <button onClick={showAuthUser} className="btn btn-primary" >show auth current user  </button><br />
                 <button onClick={showUpdateProfile} className="btn btn-warning my-3" >Update User Profile </button><br />
-                <button onClick={handleSignOut} className="btn btn-danger" >logout</button>
+                <button onClick={handleSignOut} className="btn btn-danger" >logout</button><br />
+                <button onClick={handleEmail} className="btn btn-dark my-4" >send verification email</button>
               </div>
             </div> :
 
