@@ -85,10 +85,10 @@ export const Login = () => {
 
   // show auth user profile
 
-   const showAuthUser = () => {
-   }
+  const showAuthUser = () => {
+  }
   //  show update Profile
-  const showUpdateProfile = () =>{
+  const showUpdateProfile = () => {
 
   }
   return (
@@ -102,9 +102,9 @@ export const Login = () => {
                 <h2 className="text-white">User UID:{user.uid}</h2>
                 <h2 className="text-white">User Name:{user.displayName}</h2>
 
-                <button onClick={showAuthUser} className="btn btn-primary text-black" >show auth current user  </button>
-                <button onClick={showUpdateProfile} className="btn btn-info text-black" >Update User Profile </button>
-                <button onClick={handleSignOut} className="btn btn-success text-black" >logout</button>
+                <button onClick={showAuthUser} className="btn btn-primary" >show auth current user  </button><br />
+                <button onClick={showUpdateProfile} className="btn btn-warning my-3" >Update User Profile </button><br />
+                <button onClick={handleSignOut} className="btn btn-danger" >logout</button>
               </div>
             </div> :
 
