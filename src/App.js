@@ -1,5 +1,5 @@
 import { Login } from "./pages/Login";
-import "bootstrap/dist/js/bootstrap.min.js"
+// import "bootstrap/dist/js/bootstrap.bundle"
 import "./scss/App.scss";
 // firebase authentications
 

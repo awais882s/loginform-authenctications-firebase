@@ -82,6 +82,15 @@ export const Login = () => {
       // An error happened.
     });
   }
+
+  // show auth user profile
+
+   const showAuthUser = () => {
+   }
+  //  show update Profile
+  const showUpdateProfile = () =>{
+
+  }
   return (
     <div className="login d-flex justify-content-center align-items-center">
       <div className="container">
@@ -93,7 +102,9 @@ export const Login = () => {
                 <h2 className="text-white">User UID:{user.uid}</h2>
                 <h2 className="text-white">User Name:{user.displayName}</h2>
 
-                <button onClick={handleSignOut} className="btn btn-danger text-black" >logout</button>
+                <button onClick={showAuthUser} className="btn btn-primary text-black" >show auth current user  </button>
+                <button onClick={showUpdateProfile} className="btn btn-info text-black" >Update User Profile </button>
+                <button onClick={handleSignOut} className="btn btn-success text-black" >logout</button>
               </div>
             </div> :
 
