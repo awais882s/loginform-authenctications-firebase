@@ -94,7 +94,7 @@ export const Login = () => {
   const showUpdateProfile = () => {
     const user = auth.currentUser;
     updateProfile(user, {
-      displayName: "AWAIS"
+      displayName: "AWAIS", photoURL: "https://res.cloudinary.com/dtzcvsa8l/image/upload/v1656487646/AWAIS%20S/IMG_20190609_093124_uc5rdn.jpg"
     }).then(() => {
       console.log("Profile Updated!")
       // ...
